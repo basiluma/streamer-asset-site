@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Assets | Vtuber・ストリーマー向け無料素材配布</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="fluid-container">
+            <nav>
+                <a href="index.html" class="logo">
+                    V-Assets
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active-link">ホーム</a></li>
+                    <li><a href="terms.html">利用規約</a></li>
+                    <li><a href="request.html" class="btn btn-primary btn-sm">リクエスト</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <!-- Background Slideshow -->
+            <div class="hero-slideshow">
+                <div class="slide active" style="background-image: url('images/hero-1.png');"></div>
+                <div class="slide" style="background-image: url('images/hero-2.png');"></div>
+                <div class="slide" style="background-image: url('images/hero-3.png');"></div>
+            </div>
+
+            <!-- Slideshow Controls -->
+            <button class="slide-prev" aria-label="Previous Slide">❮</button>
+            <button class="slide-next" aria-label="Next Slide">❯</button>
+
+            <div class="container">
+                <h1>あなたの配信を、<br>もっと魅力的に。</h1>
+                <p class="hero-text">
+                    配信画面を、もっとかわいく、もっと楽しく！<br>
+                    Vtuber・ストリーマー活動を彩る、とっておきの素材を無料でお届けします。
+                </p>
+
+                <!-- Search Box (Moved from Sidebar) -->
+                <div class="search-box hero-search-box">
+                    <input type="text" id="searchInput" placeholder="キーワードで素材を探す（例: ピンク, マイク...）"
+                        class="hero-search-input">
+                </div>
+            </div>
+        </section>
+
+        <div class="fluid-container" id="assets-section">
+            <div class="main-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Sort -->
+                    <div class="filter-group">
+                        <div class="filter-title">並び替え</div>
+                        <div class="search-box">
+                            <select id="sortSelect" class="sort-select">
+                                <option value="newest">新着順</option>
+                                <option value="popular">人気順</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <div class="filter-title">カテゴリー</div>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="all" checked> すべて
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="hands"> 手素材
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="items"> 小物・装飾
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="equipment"> 配信機材
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Tag Filter -->
+                    <div class="filter-group">
+                        <div class="filter-title">タグ</div>
+                        <div class="filter-tags">
+                            <a href="#" class="filter-tag" data-value="pink">ピンク</a>
+                            <a href="#" class="filter-tag" data-value="blue">ブルー</a>
+                            <a href="#" class="filter-tag" data-value="black">黒</a>
+                            <a href="#" class="filter-tag" data-value="white">白</a>
+                            <a href="#" class="filter-tag" data-value="game">ゲーム</a>
+                            <a href="#" class="filter-tag" data-value="zatsudan">雑談</a>
+                            <a href="#" class="filter-tag" data-value="cool">かっこいい</a>
+                            <a href="#" class="filter-tag" data-value="cute">かわいい</a>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="content-area">
+                    <div class="assets-grid" id="assetsGrid">
+                        <!-- Assets will be rendered here by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 V-Assets. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

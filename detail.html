@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>素材詳細 | V-Assets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .preview-area {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .preview-img {
+            width: 100%;
+            height: 400px;
+            background-color: #ffdde1;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+        }
+
+        .asset-meta {
+            margin-top: 20px;
+        }
+
+        .download-section {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .detail-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="fluid-container">
+            <nav>
+                <a href="index.html" class="logo">
+                    V-Assets
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="terms.html">利用規約</a></li>
+                    <li><a href="request.html" class="btn btn-primary"
+                            style="padding: 8px 20px; font-size: 0.9rem;">リクエスト</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="detail-layout">
+                <!-- Left Column: Content -->
+                <div class="content-col">
+                    <div class="preview-area">
+                        <div class="preview-img"></div>
+                        <div class="asset-meta">
+                            <span class="asset-category">手素材</span>
+                            <h1 style="margin: 10px 0;">ゲームコントローラーを持つ手</h1>
+                            <p style="color: #666;">
+                                配信画面に重ねて使える、ゲームコントローラーを持つ手の素材です。<br>
+                                ゲーム実況の没入感を高めるのに最適です。<br>
+                                肌の色味調整も可能です（要編集ソフト）。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Sidebar -->
+                <aside class="sidebar-col">
+                    <div class="download-section">
+                        <h3 style="margin-bottom: 15px;">無料ダウンロード</h3>
+                        <button class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">ダウンロード (.png)</button>
+                        <p style="font-size: 0.8rem; color: #999;">商用利用OK / クレジット不要</p>
+                    </div>
+
+                    <!-- Sidebar Ad -->
+                    <div class="ad-container ad-rect" style="margin: 20px auto;">
+                        広告スペース (300x250)
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Bottom Ad -->
+            <div class="ad-container ad-banner">
+                広告スペース (728x90)
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 V-Assets. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

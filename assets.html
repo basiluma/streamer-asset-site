@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>素材一覧 | V-Assets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    V-Assets
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="assets.html" style="color: var(--primary-color);">素材一覧</a></li>
+                    <li><a href="terms.html">利用規約</a></li>
+                    <li><a href="request.html" class="btn btn-primary"
+                            style="padding: 8px 20px; font-size: 0.9rem;">リクエスト</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2 class="section-title">すべての素材</h2>
+
+            <!-- Search & Filters -->
+            <div style="max-width: 600px; margin: 0 auto 40px; text-align: center;">
+                <div style="position: relative; margin-bottom: 20px;">
+                    <input type="text" id="searchInput" placeholder="キーワードで検索 (例: 手, コントローラー)"
+                        style="width: 100%; padding: 15px 25px; border-radius: 50px; border: 2px solid #eee; font-size: 1rem; outline: none; transition: border-color 0.3s;">
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="btn filter-btn active" data-filter="all"
+                        style="background: var(--primary-color); color: white; margin: 5px; padding: 8px 20px; font-size: 0.9rem;">すべて</button>
+                    <button class="btn filter-btn" data-filter="hands"
+                        style="background: white; border: 1px solid #eee; margin: 5px; padding: 8px 20px; font-size: 0.9rem;">手素材</button>
+                    <button class="btn filter-btn" data-filter="items"
+                        style="background: white; border: 1px solid #eee; margin: 5px; padding: 8px 20px; font-size: 0.9rem;">小物・装飾</button>
+                    <button class="btn filter-btn" data-filter="equipment"
+                        style="background: white; border: 1px solid #eee; margin: 5px; padding: 8px 20px; font-size: 0.9rem;">配信機材</button>
+                </div>
+            </div>
+
+            <div class="assets-grid" id="assetsGrid">
+                <!-- Asset 1 -->
+                <article class="asset-card" data-tags="hands game controller">
+                    <a href="detail.html">
+                        <div class="asset-thumb" style="background: #ffdde1;"></div>
+                        <div class="asset-info">
+                            <span class="asset-category">手素材</span>
+                            <h3 class="asset-title">ゲームコントローラーを持つ手</h3>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Asset 2 -->
+                <article class="asset-card" data-tags="hands drink tapioca">
+                    <a href="detail.html">
+                        <div class="asset-thumb" style="background: #d4fc79;"></div>
+                        <div class="asset-info">
+                            <span class="asset-category">手素材</span>
+                            <h3 class="asset-title">タピオカドリンクを持つ手</h3>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Asset 3 -->
+                <article class="asset-card" data-tags="items cat ears headset">
+                    <a href="detail.html">
+                        <div class="asset-thumb" style="background: #a1c4fd;"></div>
+                        <div class="asset-info">
+                            <span class="asset-category">小物・装飾</span>
+                            <h3 class="asset-title">猫耳ヘッドセット（白）</h3>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Asset 4 -->
+                <article class="asset-card" data-tags="equipment mic">
+                    <a href="detail.html">
+                        <div class="asset-thumb" style="background: #f6d365;"></div>
+                        <div class="asset-info">
+                            <span class="asset-category">配信機材</span>
+                            <h3 class="asset-title">プロ仕様マイク（スタンド付）</h3>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Asset 5 -->
+                <article class="asset-card" data-tags="equipment chair gaming">
+                    <a href="detail.html">
+                        <div class="asset-thumb" style="background: #c2e9fb;"></div>
+                        <div class="asset-info">
+                            <span class="asset-category">配信機材</span>
+                            <h3 class="asset-title">ゲーミングチェア（ピンク）</h3>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Asset 6 -->
+                <article class="asset-card" data-tags="items plushie bear">
+                    <a href="detail.html">
+                        <div class="asset-thumb" style="background: #e0c3fc;"></div>
+                        <div class="asset-info">
+                            <span class="asset-category">小物・装飾</span>
+                            <h3 class="asset-title">くまのぬいぐるみ</h3>
+                        </div>
+                    </a>
+                </article>
+            </div>
+
+            <!-- Ad Space Bottom -->
+            <div class="ad-container ad-banner">
+                広告スペース (728x90)
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 V-Assets. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
