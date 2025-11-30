@@ -1,108 +1,108 @@
 // Asset Data
 const assets = [
-    // HANDS
+    // NEW ASSETS (from images/assets)
     {
         id: 1,
         category: 'hands',
-        title: 'ゲームコントローラーを持つ手（ピンク）',
-        tags: ['game', 'controller', 'pink', 'cute', 'hands'],
-        date: '2024-01-15',
-        popularity: 85,
-        color: '#ffdde1',
-        image: '' // Using color for now as per original HTML
+        title: 'エナジー缶を持つ手',
+        tags: ['drink', 'energy', 'hand', 'cool', 'hands'],
+        date: '2024-02-01',
+        popularity: 100,
+        color: '#fff',
+        image: 'images/assets/1_エナジー缶を持つ手.png'
     },
     {
         id: 2,
         category: 'hands',
-        title: 'ゲームコントローラーを持つ手（ブルー）',
-        tags: ['game', 'controller', 'blue', 'cool', 'hands'],
-        date: '2024-01-14',
-        popularity: 92,
-        color: '#a1c4fd',
-        image: ''
+        title: 'エナジー缶を持つ手 (Ver.2)',
+        tags: ['drink', 'energy', 'hand', 'cool', 'hands'],
+        date: '2024-02-01',
+        popularity: 95,
+        color: '#fff',
+        image: 'images/assets/1_エナジー缶を持つ手_2.png'
     },
     {
         id: 3,
         category: 'hands',
-        title: 'ゲームコントローラーを持つ手（黒）',
-        tags: ['game', 'controller', 'black', 'cool', 'hands'],
-        date: '2024-01-10',
-        popularity: 78,
-        color: '#555',
-        image: ''
+        title: 'ハートの手',
+        tags: ['heart', 'love', 'cute', 'hand', 'hands'],
+        date: '2024-02-02',
+        popularity: 120,
+        color: '#ffdde1',
+        image: 'images/assets/2_ハートの手.png'
     },
     {
         id: 4,
         category: 'hands',
-        title: 'タピオカドリンクを持つ手（ミルクティー）',
-        tags: ['drink', 'tapioca', 'cute', 'hands'],
-        date: '2024-01-20',
-        popularity: 95,
-        color: '#f6d365',
-        image: ''
+        title: 'ゲームをする手',
+        tags: ['game', 'controller', 'cool', 'hand', 'hands'],
+        date: '2024-02-03',
+        popularity: 110,
+        color: '#a1c4fd',
+        image: 'images/assets/3_ゲームをする手.png'
     },
     {
         id: 5,
         category: 'hands',
-        title: 'タピオカドリンクを持つ手（いちご）',
-        tags: ['drink', 'tapioca', 'pink', 'cute', 'hands'],
-        date: '2024-01-18',
-        popularity: 88,
-        color: '#ff9a9e',
-        image: ''
+        title: 'サイリウムを持つ手 (赤)',
+        tags: ['penlight', 'live', 'red', 'cool', 'hands'],
+        date: '2024-02-04',
+        popularity: 90,
+        color: '#ff7675',
+        image: 'images/assets/3_サイリウムを持つ手_1.png'
     },
     {
         id: 6,
         category: 'hands',
-        title: 'スマホを持つ手（白）',
-        tags: ['zatsudan', 'smartphone', 'white', 'cute', 'hands'],
-        date: '2024-01-05',
-        popularity: 60,
-        color: '#fff',
-        border: '1px solid #eee',
-        image: ''
+        title: 'サイリウムを持つ手 (黄)',
+        tags: ['penlight', 'live', 'yellow', 'cool', 'hands'],
+        date: '2024-02-04',
+        popularity: 88,
+        color: '#74b9ff',
+        image: 'images/assets/3_サイリウムを持つ手_2.png'
     },
     {
         id: 7,
         category: 'hands',
-        title: 'スマホを持つ手（黒）',
-        tags: ['zatsudan', 'smartphone', 'black', 'cool', 'hands'],
-        date: '2024-01-04',
-        popularity: 55,
-        color: '#333',
-        image: ''
+        title: 'サイリウムを持つ手 (青)',
+        tags: ['penlight', 'live', 'blue', 'cute', 'hands'],
+        date: '2024-02-04',
+        popularity: 85,
+        color: '#ffeaa7',
+        image: 'images/assets/3_サイリウムを持つ手_3.png'
     },
     {
         id: 8,
         category: 'hands',
-        title: 'ピースサインの手',
-        tags: ['zatsudan', 'cute', 'hands'],
-        date: '2024-01-25',
-        popularity: 98,
-        color: '#ffeaa7',
-        image: ''
+        title: 'サイリウムを持つ手 (緑)',
+        tags: ['penlight', 'live', 'green', 'cute', 'hands'],
+        date: '2024-02-04',
+        popularity: 82,
+        color: '#55efc4',
+        image: 'images/assets/3_サイリウムを持つ手_4.png'
     },
     {
         id: 9,
         category: 'hands',
-        title: 'ハートを作る手',
-        tags: ['zatsudan', 'pink', 'cute', 'hands'],
-        date: '2024-01-22',
-        popularity: 90,
-        color: '#fab1a0',
-        image: ''
+        title: 'サイリウムを持つ手 (紫)',
+        tags: ['penlight', 'live', 'purple', 'cool', 'hands'],
+        date: '2024-02-04',
+        popularity: 89,
+        color: '#a29bfe',
+        image: 'images/assets/3_サイリウムを持つ手_5.png'
     },
     {
         id: 10,
         category: 'hands',
-        title: '拍手する手',
-        tags: ['zatsudan', 'hands'],
-        date: '2024-01-02',
-        popularity: 40,
-        color: '#dfe6e9',
-        image: ''
+        title: 'サイリウムを持つ手 (ピンク)',
+        tags: ['penlight', 'live', 'pink', 'cute', 'hands'],
+        date: '2024-02-04',
+        popularity: 98,
+        color: '#fd79a8',
+        image: 'images/assets/3_サイリウムを持つ手_6.png'
     },
-    // ITEMS
+
+    // ITEMS (Placeholders)
     {
         id: 11,
         category: 'items',
@@ -154,57 +154,8 @@ const assets = [
         color: '#ff7675',
         image: ''
     },
-    {
-        id: 16,
-        category: 'items',
-        title: '黒縁メガネ',
-        tags: ['glasses', 'black', 'cool', 'items'],
-        date: '2024-01-06',
-        popularity: 55,
-        color: '#636e72',
-        image: ''
-    },
-    {
-        id: 17,
-        category: 'items',
-        title: 'くまのぬいぐるみ',
-        tags: ['plushie', 'bear', 'cute', 'items'],
-        date: '2024-01-03',
-        popularity: 80,
-        color: '#b2bec3',
-        image: ''
-    },
-    {
-        id: 18,
-        category: 'items',
-        title: 'うさぎのぬいぐるみ',
-        tags: ['plushie', 'rabbit', 'pink', 'cute', 'items'],
-        date: '2024-01-09',
-        popularity: 85,
-        color: '#fd79a8',
-        image: ''
-    },
-    {
-        id: 19,
-        category: 'items',
-        title: '花冠（ピンク）',
-        tags: ['flower', 'crown', 'pink', 'cute', 'items'],
-        date: '2024-01-16',
-        popularity: 72,
-        color: '#e84393',
-        image: ''
-    },
-    {
-        id: 20,
-        category: 'items',
-        title: 'パーティーハット',
-        tags: ['party', 'hat', 'colorful', 'zatsudan', 'items'],
-        date: '2024-01-01',
-        popularity: 30,
-        color: '#00b894',
-        image: ''
-    },
-    // EQUIPMENT
+
+    // EQUIPMENT (Placeholders)
     {
         id: 21,
         category: 'equipment',
@@ -253,57 +204,6 @@ const assets = [
         date: '2024-01-23',
         popularity: 86,
         color: '#0984e3',
-        image: ''
-    },
-    {
-        id: 26,
-        category: 'equipment',
-        title: 'ゲーミングチェア（ピンク）',
-        tags: ['chair', 'gaming', 'pink', 'cute', 'equipment'],
-        date: '2024-01-26',
-        popularity: 91,
-        color: '#fd79a8',
-        image: ''
-    },
-    {
-        id: 27,
-        category: 'equipment',
-        title: 'ゲーミングチェア（ブルー）',
-        tags: ['chair', 'gaming', 'blue', 'cool', 'equipment'],
-        date: '2024-01-27',
-        popularity: 89,
-        color: '#74b9ff',
-        image: ''
-    },
-    {
-        id: 28,
-        category: 'equipment',
-        title: 'ゲーミングチェア（赤）',
-        tags: ['chair', 'gaming', 'red', 'cool', 'equipment'],
-        date: '2024-01-28',
-        popularity: 84,
-        color: '#d63031',
-        image: ''
-    },
-    {
-        id: 29,
-        category: 'equipment',
-        title: '左手デバイス（ストリームデッキ）',
-        tags: ['stream', 'deck', 'game', 'cool', 'equipment'],
-        date: '2024-01-29',
-        popularity: 79,
-        color: '#2d3436',
-        image: ''
-    },
-    {
-        id: 30,
-        category: 'equipment',
-        title: 'リングライト',
-        tags: ['ring', 'light', 'zatsudan', 'equipment'],
-        date: '2024-01-30',
-        popularity: 62,
-        color: '#fff',
-        border: '1px solid #eee',
         image: ''
     }
 ];

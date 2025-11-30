@@ -67,12 +67,12 @@
                     <div class="preview-area">
                         <div class="preview-img"></div>
                         <div class="asset-meta">
-                            <span class="asset-category">手素材</span>
-                            <h1 style="margin: 10px 0;">ゲームコントローラーを持つ手</h1>
+                            <span class="asset-category" id="detail-category"></span>
+                            <h1 style="margin: 10px 0;" id="detail-title"></h1>
                             <p style="color: #666;">
-                                配信画面に重ねて使える、ゲームコントローラーを持つ手の素材です。<br>
-                                ゲーム実況の没入感を高めるのに最適です。<br>
-                                肌の色味調整も可能です（要編集ソフト）。
+                                配信画面に重ねて使える、Vtuber・ストリーマー向けのフリー素材です。<br>
+                                配信の雰囲気に合わせてお使いください。<br>
+                                色味調整や加工も自由に行っていただけます。
                             </p>
                         </div>
                     </div>
@@ -82,8 +82,18 @@
                 <aside class="sidebar-col">
                     <div class="download-section">
                         <h3 style="margin-bottom: 15px;">無料ダウンロード</h3>
-                        <button class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">ダウンロード (.png)</button>
+                        <button class="btn btn-primary" id="download-btn"
+                            style="width: 100%; margin-bottom: 10px;">ダウンロード (.png)</button>
                         <p style="font-size: 0.8rem; color: #999;">商用利用OK / クレジット不要</p>
+
+                        <!-- Color Adjustment -->
+                        <div class="color-adjustment">
+                            <h3>色調整</h3>
+                            <div class="slider-container">
+                                <label for="hueSlider">色相 (Hue): <span id="hueValue">0</span>°</label>
+                                <input type="range" id="hueSlider" min="0" max="360" value="0">
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Sidebar Ad -->
@@ -106,7 +116,8 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/detail.js"></script>
 </body>
 
 </html>

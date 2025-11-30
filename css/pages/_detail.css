@@ -1,0 +1,32 @@
+/* Detail Page Styles */
+.color-adjustment {
+    margin: 24px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: var(--radius-md);
+    border: 1px solid #eee;
+}
+
+.color-adjustment h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.slider-container label {
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}

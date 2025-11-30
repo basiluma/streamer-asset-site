@@ -39,17 +39,22 @@ function renderAssets(container, assets, state) {
     });
 
     // Generate HTML
-    container.innerHTML = filteredAssets.map(asset => `
+    container.innerHTML = filteredAssets.map(asset => {
+        const thumbStyle = asset.image
+            ? `background-image: url('${asset.image}'); background-size: contain; background-position: center; background-repeat: no-repeat;`
+            : `background: ${asset.color};`;
+
+        return `
         <article class="asset-card" data-category="${asset.category}" data-tags="${asset.tags.join(' ')}" data-date="${asset.date}" data-popularity="${asset.popularity}">
-            <a href="detail.html">
-                <div class="asset-thumb" style="background: ${asset.color}; ${asset.border ? `border: ${asset.border};` : ''}"></div>
+            <a href="detail.html?id=${asset.id}">
+                <div class="asset-thumb" style="${thumbStyle} ${asset.border ? `border: ${asset.border};` : ''}"></div>
                 <div class="asset-info">
                     <span class="asset-category">${getCategoryName(asset.category)}</span>
                     <h3 class="asset-title">${asset.title}</h3>
                 </div>
             </a>
         </article>
-    `).join('');
+    `}).join('');
 }
 
 // Helper: Get Category Name
