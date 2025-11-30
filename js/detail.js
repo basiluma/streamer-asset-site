@@ -48,14 +48,60 @@ document.addEventListener('DOMContentLoaded', () => {
     downloadBtn.onclick = (e) => {
         e.preventDefault();
 
-        if (hueSlider && previewImg) {
-            hueSlider.addEventListener('input', (e) => {
-                const value = e.target.value;
-                hueValue.textContent = value;
-                previewImg.style.filter = `hue-rotate(${value}deg)`;
-            });
+        if (!asset.image) {
+            alert('ダウンロード可能な画像がありません。');
+            return;
         }
-    });
+
+        const img = new Image();
+        img.crossOrigin = "Anonymous"; // Try to handle CORS if images are external
+        img.src = asset.image;
+
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            // Apply filter
+            const hue = document.getElementById('hueSlider').value;
+            ctx.filter = `hue-rotate(${hue}deg)`;
+
+            ctx.drawImage(img, 0, 0);
+
+            // Trigger download
+            const link = document.createElement('a');
+            link.download = `${asset.title}_${hue}.png`;
+            link.href = canvas.toDataURL('image/png');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
+        img.onerror = () => {
+            // Fallback: Direct download
+            const link = document.createElement('a');
+            link.download = asset.title + '.png';
+            link.href = asset.image;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+    };
+    // Color Adjustment
+    const hueSlider = document.getElementById('hueSlider');
+    const hueValue = document.getElementById('hueValue');
+    // previewImg is already defined above
+
+    if (hueSlider && previewImg) {
+        hueSlider.addEventListener('input', (e) => {
+            const value = e.target.value;
+            hueValue.textContent = value;
+            previewImg.style.filter = `hue-rotate(${value}deg)`;
+        });
+    }
+});
 
 // Helper: Get Category Name (Duplicated from render.js, ideally should be shared)
 function getCategoryName(category) {
