@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Image/Preview
     const previewImg = document.querySelector('.preview-img');
     if (asset.image) {
-        previewImg.style.backgroundImage = `url('${asset.image}')`;
+        previewImg.style.backgroundImage = `url('${encodeURI(asset.image)}')`;
         previewImg.style.backgroundSize = 'contain';
         previewImg.style.backgroundPosition = 'center';
         previewImg.style.backgroundRepeat = 'no-repeat';
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const img = new Image();
         img.crossOrigin = "Anonymous"; // Try to handle CORS if images are external
-        img.src = asset.image;
+        img.src = encodeURI(asset.image);
 
         img.onload = () => {
             const canvas = document.createElement('canvas');
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Fallback: Direct download
             const link = document.createElement('a');
             link.download = asset.title + '.png';
-            link.href = asset.image;
+            link.href = encodeURI(asset.image);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

@@ -41,7 +41,7 @@ function renderAssets(container, assets, state) {
     // Generate HTML
     container.innerHTML = filteredAssets.map(asset => {
         const thumbStyle = asset.image
-            ? `background-image: url('${asset.image}'); background-size: contain; background-position: center; background-repeat: no-repeat;`
+            ? `background-image: url('${encodeURI(asset.image)}'); background-size: contain; background-position: center; background-repeat: no-repeat;`
             : `background: ${asset.color};`;
 
         return `
