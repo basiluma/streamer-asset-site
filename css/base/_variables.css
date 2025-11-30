@@ -1,0 +1,16 @@
+:root {
+    /* Pop & Friendly Theme */
+    --bg-color: #f0f0f0;
+    --text-color: #2d3436;
+    --primary-color: #ff9a9e;
+    --primary-hover: #ff767b;
+    --secondary-color: #a1c4fd;
+    --accent-yellow: #f6d365;
+    --card-bg: #ffffff;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.1);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 8px;
+    --font-main: 'M PLUS Rounded 1c', 'Quicksand', sans-serif;
+}

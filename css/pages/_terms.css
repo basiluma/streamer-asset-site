@@ -1,0 +1,54 @@
+/* Terms Page */
+.terms-content {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    margin-top: 40px;
+}
+
+.terms-content h2 {
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+
+.terms-content h2:first-child {
+    margin-top: 0;
+}
+
+.terms-content ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.terms-content li {
+    margin-bottom: 10px;
+}
+
+.ok-ng-list {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.ok-box,
+.ng-box {
+    flex: 1;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    min-width: 250px;
+}
+
+.ok-box {
+    background-color: #e6fffa;
+    border: 2px solid #38b2ac;
+}
+
+.ng-box {
+    background-color: #fff5f5;
+    border: 2px solid #fc8181;
+}

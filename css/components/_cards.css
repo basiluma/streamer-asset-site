@@ -1,0 +1,121 @@
+/* Featured Assets (Grid) */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0 0 20px;
+    /* Reduced margin */
+    position: relative;
+    display: block;
+    /* Ensure block display for centering */
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--secondary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.assets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 Columns */
+    gap: 30px;
+    /* Larger gap */
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.asset-card {
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    position: relative;
+    top: 0;
+    height: 300px;
+    /* Fixed height for the card */
+}
+
+.asset-card:hover {
+    transform: translateY(-5px);
+}
+
+.asset-card:hover .asset-thumb {
+    transform: scale(1.05);
+}
+
+.asset-thumb {
+    width: 100%;
+    height: 100%;
+    /* Fill the card */
+    background-color: #eee;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.asset-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+    color: white;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.asset-title {
+    font-size: 1.0rem;
+    margin-bottom: 0;
+    font-weight: 800;
+    color: white;
+    line-height: 1.4;
+}
+
+.asset-category {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+    box-shadow: none;
+    letter-spacing: 0.05em;
+}
+
+.asset-category::before {
+    content: none;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+    .assets-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .assets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .assets-grid {
+        grid-template-columns: 1fr;
+    }
+}
