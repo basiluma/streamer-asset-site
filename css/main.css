@@ -12,5 +12,6 @@
 @import url('components/_cards.css');
 @import url('components/_forms.css');
 @import url('components/_tags.css');
+@import url('components/_mobile-filters.css');
 
 @import url('pages/_terms.css');

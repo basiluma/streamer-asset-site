@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </a>
                 <ul class="nav-links">
 
-                    <li><a href="assets.html">素材一覧</a></li>
+
                     <li><a href="terms.html">利用規約</a></li>
                     <li><a href="request.html" class="btn btn-primary btn-sm">リクエスト</a></li>
                 </ul>

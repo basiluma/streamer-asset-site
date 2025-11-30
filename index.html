@@ -64,19 +64,13 @@
                     <!-- Category Filter -->
                     <div class="filter-group">
                         <div class="filter-title">カテゴリー</div>
-                        <div class="filter-options">
-                            <label class="filter-option">
-                                <input type="radio" name="category" value="all" checked> すべて
-                            </label>
-                            <label class="filter-option">
-                                <input type="radio" name="category" value="hands"> 手素材
-                            </label>
-                            <label class="filter-option">
-                                <input type="radio" name="category" value="items"> 小物・装飾
-                            </label>
-                            <label class="filter-option">
-                                <input type="radio" name="category" value="equipment"> 配信機材
-                            </label>
+                        <div class="search-box">
+                            <select id="categorySelect" class="sort-select">
+                                <option value="all">すべて</option>
+                                <option value="hands">手素材</option>
+                                <option value="items">小物・装飾</option>
+                                <option value="equipment">配信機材</option>
+                            </select>
                         </div>
                     </div>
 
@@ -98,6 +92,26 @@
 
                 <!-- Main Content -->
                 <div class="content-area">
+                    <!-- Mobile Category Filters -->
+                    <div class="mobile-category-filters">
+                        <div class="mobile-filter-row">
+                            <div class="search-box mobile-sort-box">
+                                <select id="mobileSortSelect" class="sort-select">
+                                    <option value="newest">新着順</option>
+                                    <option value="popular">人気順</option>
+                                </select>
+                            </div>
+                            <div class="search-box mobile-category-box">
+                                <select id="mobileCategorySelect" class="sort-select">
+                                    <option value="all">すべて</option>
+                                    <option value="hands">手素材</option>
+                                    <option value="items">小物・装飾</option>
+                                    <option value="equipment">配信機材</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="assets-grid" id="assetsGrid">
                         <!-- Assets will be rendered here by JS -->
                     </div>

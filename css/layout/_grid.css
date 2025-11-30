@@ -105,6 +105,10 @@
         position: static;
         margin-bottom: 30px;
     }
+
+    .content-area {
+        width: 100%;
+    }
 }
 
 @media (max-width: 600px) {
@@ -117,6 +121,6 @@
     }
 
     .sidebar {
-        padding: 20px;
+        display: none;
     }
 }

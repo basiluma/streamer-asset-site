@@ -37,17 +37,46 @@ function setupEventListeners() {
     if (sortSelect) {
         sortSelect.addEventListener('change', (e) => {
             state.currentSort = e.target.value;
+            // Sync mobile sort if exists
+            const mobileSort = document.getElementById('mobileSortSelect');
+            if (mobileSort) mobileSort.value = e.target.value;
+            renderAssets(assetsGrid, assets, state);
+        });
+    }
+
+    const mobileSortSelect = document.getElementById('mobileSortSelect');
+    if (mobileSortSelect) {
+        mobileSortSelect.addEventListener('change', (e) => {
+            state.currentSort = e.target.value;
+            // Sync desktop sort if exists
+            if (sortSelect) sortSelect.value = e.target.value;
             renderAssets(assetsGrid, assets, state);
         });
     }
 
     // Category
-    categoryRadios.forEach(radio => {
-        radio.addEventListener('change', (e) => {
+    // Category
+    // Category
+    const categorySelect = document.getElementById('categorySelect');
+    if (categorySelect) {
+        categorySelect.addEventListener('change', (e) => {
             state.currentCategory = e.target.value;
+            // Sync mobile select if exists
+            const mobileSelect = document.getElementById('mobileCategorySelect');
+            if (mobileSelect) mobileSelect.value = e.target.value;
             renderAssets(assetsGrid, assets, state);
         });
-    });
+    }
+
+    const mobileCategorySelect = document.getElementById('mobileCategorySelect');
+    if (mobileCategorySelect) {
+        mobileCategorySelect.addEventListener('change', (e) => {
+            state.currentCategory = e.target.value;
+            // Sync desktop select if exists
+            if (categorySelect) categorySelect.value = e.target.value;
+            renderAssets(assetsGrid, assets, state);
+        });
+    }
 
     // Tags
     filterTags.forEach(tag => {
