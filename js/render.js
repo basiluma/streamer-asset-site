@@ -1,5 +1,5 @@
 // Render Function
-function renderAssets(container, assets, state) {
+export function renderAssets(container, assets, state) {
     if (!container) return;
 
     const { currentCategory, currentSort, activeTags, searchQuery } = state;

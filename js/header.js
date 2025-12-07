@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+export function initHeader() {
     const headerHTML = `
         <div class="fluid-container">
             <nav>
@@ -20,12 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (headerElement) {
         headerElement.innerHTML = headerHTML;
         setActiveLink();
-
-        // Re-attach mobile menu event listener if needed
-        // Assuming main.js handles the click event delegation or we need to re-bind it here.
-        // If main.js runs after this, it might be fine, but if main.js runs before, the button won't exist yet.
-        // Let's check if we need to dispatch an event or if main.js uses delegation.
-        // For now, let's assume we might need to trigger something or main.js needs to be loaded after.
     }
 
     function setActiveLink() {
@@ -49,4 +43,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-});
+}

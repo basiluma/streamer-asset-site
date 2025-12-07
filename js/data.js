@@ -1,5 +1,5 @@
 // Asset Data
-const assets = [
+export const assets = [
     // Image Assets
     {
         id: 1,
@@ -315,6 +315,6 @@ const assets = [
 ];
 
 // Helper to get asset by ID
-function getAssetById(id) {
+export function getAssetById(id) {
     return assets.find(asset => asset.id === id);
 }
