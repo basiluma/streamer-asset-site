@@ -86,12 +86,36 @@
                             style="width: 100%; margin-bottom: 10px;">ダウンロード (.png)</button>
                         <p style="font-size: 0.8rem; color: #999;">商用利用OK / クレジット不要</p>
 
+                        <!-- OBS URL Section (Hidden by default) -->
+                        <div id="obs-url-section" style="display: none; margin-top: 20px; text-align: left;">
+                            <h3>OBS用URL</h3>
+                            <p style="font-size: 0.9rem; margin-bottom: 5px;">このURLをOBSのブラウザソースに入力してください。</p>
+                            <div style="display: flex; gap: 5px;">
+                                <input type="text" id="obs-url-input" readonly
+                                    style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;">
+                                <button id="copy-obs-url-btn" class="btn"
+                                    style="padding: 5px 10px; font-size: 0.9rem;">Copy</button>
+                            </div>
+                        </div>
+
                         <!-- Color Adjustment -->
-                        <div class="color-adjustment">
+                        <div class="color-adjustment" style="margin-top: 20px; text-align: left;">
                             <h3>色調整</h3>
                             <div class="slider-container">
                                 <label for="hueSlider">色相 (Hue): <span id="hueValue">0</span>°</label>
-                                <input type="range" id="hueSlider" min="0" max="360" value="0">
+                                <input type="range" id="hueSlider" min="0" max="360" value="0" style="width: 100%;">
+                            </div>
+                            <div class="slider-container" style="margin-top: 15px;">
+                                <label for="contrastSlider">コントラスト (Contrast): <span
+                                        id="contrastValue">100</span>%</label>
+                                <input type="range" id="contrastSlider" min="0" max="200" value="100"
+                                    style="width: 100%;">
+                            </div>
+                            <div class="slider-container" style="margin-top: 15px;">
+                                <label for="brightnessSlider">明度 (Brightness): <span
+                                        id="brightnessValue">100</span>%</label>
+                                <input type="range" id="brightnessSlider" min="0" max="200" value="100"
+                                    style="width: 100%;">
                             </div>
                         </div>
                     </div>
@@ -116,8 +140,8 @@
         </div>
     </footer>
 
-    <script src="js/data.js"></script>
-    <script src="js/detail.js"></script>
+    <script src="js/data.js?v=11"></script>
+    <script src="js/detail.js?v=8"></script>
 </body>
 
 </html>

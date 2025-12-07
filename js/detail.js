@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Get ID from URL
     const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get('id'));
+    const idParam = params.get('id');
+    // Try to parse as integer for legacy IDs, but keep as string if not a number
+    const id = !isNaN(idParam) ? parseInt(idParam) : idParam;
 
     if (!id) {
-        // Redirect to index if no ID
         window.location.href = 'index.html';
         return;
     }
@@ -13,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const asset = assets.find(a => a.id === id);
 
     if (!asset) {
-        // Handle not found (could show error message or redirect)
         document.querySelector('.content-col').innerHTML = '<h1>素材が見つかりませんでした。</h1><p><a href="index.html">トップページに戻る</a></p>';
         return;
     }
@@ -38,77 +38,165 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('detail-category').textContent = getCategoryName(asset.category);
     document.getElementById('detail-title').textContent = asset.title;
 
-    // Tags (Optional: display tags)
-    // const tagsContainer = document.createElement('div');
-    // ...
-
-    // Download Button (Mock)
     // Download Button
     const downloadBtn = document.getElementById('download-btn');
-    downloadBtn.onclick = (e) => {
-        e.preventDefault();
+    if (downloadBtn) {
+        downloadBtn.onclick = (e) => {
+            e.preventDefault();
 
-        if (!asset.image) {
-            alert('ダウンロード可能な画像がありません。');
-            return;
-        }
+            if (!asset.image) {
+                alert('ダウンロード可能な画像がありません。');
+                return;
+            }
 
-        const img = new Image();
-        img.crossOrigin = "Anonymous"; // Try to handle CORS if images are external
-        img.src = encodeURI(asset.image);
+            const img = new Image();
+            img.crossOrigin = "Anonymous";
+            img.src = encodeURI(asset.image);
 
-        img.onload = () => {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = img.width;
+                canvas.height = img.height;
 
-            canvas.width = img.width;
-            canvas.height = img.height;
+                const hue = document.getElementById('hueSlider').value;
+                const contrast = document.getElementById('contrastSlider').value;
+                const brightness = document.getElementById('brightnessSlider').value;
+                ctx.filter = `hue-rotate(${hue}deg) contrast(${contrast}%) brightness(${brightness}%)`;
 
-            // Apply filter
-            const hue = document.getElementById('hueSlider').value;
-            ctx.filter = `hue-rotate(${hue}deg)`;
+                ctx.drawImage(img, 0, 0);
 
-            ctx.drawImage(img, 0, 0);
+                const link = document.createElement('a');
+                link.download = `${asset.title}_${hue}.png`;
+                link.href = canvas.toDataURL('image/png');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
 
-            // Trigger download
-            const link = document.createElement('a');
-            link.download = `${asset.title}_${hue}.png`;
-            link.href = canvas.toDataURL('image/png');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            img.onerror = () => {
+                const link = document.createElement('a');
+                link.download = asset.title + '.png';
+                link.href = encodeURI(asset.image);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
         };
+    }
 
-        img.onerror = () => {
-            // Fallback: Direct download
-            const link = document.createElement('a');
-            link.download = asset.title + '.png';
-            link.href = encodeURI(asset.image);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        };
-    };
     // Color Adjustment
     const hueSlider = document.getElementById('hueSlider');
     const hueValue = document.getElementById('hueValue');
-    // previewImg is already defined above
+    const contrastSlider = document.getElementById('contrastSlider');
+    const contrastValue = document.getElementById('contrastValue');
+    const brightnessSlider = document.getElementById('brightnessSlider');
+    const brightnessValue = document.getElementById('brightnessValue');
 
-    if (hueSlider && previewImg) {
-        hueSlider.addEventListener('input', (e) => {
-            const value = e.target.value;
-            hueValue.textContent = value;
-            previewImg.style.filter = `hue-rotate(${value}deg)`;
-        });
+    function updateFilters() {
+        if (!hueSlider || !contrastSlider || !brightnessSlider || !previewImg) return;
+        const hue = hueSlider.value;
+        const contrast = contrastSlider.value;
+        const brightness = brightnessSlider.value;
+
+        hueValue.textContent = hue;
+        contrastValue.textContent = contrast;
+        brightnessValue.textContent = brightness;
+
+        previewImg.style.filter = `hue-rotate(${hue}deg) contrast(${contrast}%) brightness(${brightness}%)`;
+    }
+
+    if (hueSlider && contrastSlider && brightnessSlider && previewImg) {
+        hueSlider.addEventListener('input', updateFilters);
+        contrastSlider.addEventListener('input', updateFilters);
+        brightnessSlider.addEventListener('input', updateFilters);
+    }
+
+    // CSS/HTML Asset Logic
+    if (asset.fileUrl) {
+        const colorAdjustment = document.querySelector('.color-adjustment');
+        if (colorAdjustment) colorAdjustment.style.display = 'none';
+
+        if (downloadBtn) {
+            downloadBtn.style.display = 'none';
+        }
+
+        // Live Preview via Iframe
+        if (previewImg) {
+            previewImg.style.backgroundImage = 'none';
+            previewImg.style.backgroundColor = '#ffffff';
+            previewImg.innerHTML = '';
+
+            const iframe = document.createElement('iframe');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            iframe.style.overflow = 'hidden';
+
+            // Allow scripts for HTML assets
+            iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+
+            if (asset.fileUrl.endsWith('.html')) {
+                iframe.src = asset.fileUrl;
+            } else {
+                const htmlContent = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset="UTF-8">
+                        <link rel="stylesheet" href="${asset.fileUrl}">
+                        <style>
+                            body { 
+                                margin: 0; 
+                                overflow: hidden;
+                                background: transparent; 
+                            }
+                        </style>
+                    </head>
+                    <body>
+                    </body>
+                    </html>
+                `;
+                iframe.srcdoc = htmlContent;
+            }
+            previewImg.appendChild(iframe);
+        }
+
+        // OBS URL Section
+        const obsUrlSection = document.getElementById('obs-url-section');
+        const obsUrlInput = document.getElementById('obs-url-input');
+        const copyObsUrlBtn = document.getElementById('copy-obs-url-btn');
+
+        if (obsUrlSection && obsUrlInput && copyObsUrlBtn) {
+            obsUrlSection.style.display = 'block';
+
+            const absoluteUrl = new URL(asset.fileUrl, window.location.href).href;
+            obsUrlInput.value = absoluteUrl;
+
+            copyObsUrlBtn.onclick = () => {
+                obsUrlInput.select();
+                obsUrlInput.setSelectionRange(0, 99999);
+                navigator.clipboard.writeText(absoluteUrl).then(() => {
+                    const originalText = copyObsUrlBtn.textContent;
+                    copyObsUrlBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyObsUrlBtn.textContent = originalText;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                    alert('コピーに失敗しました。');
+                });
+            };
+        }
     }
 });
 
-// Helper: Get Category Name (Duplicated from render.js, ideally should be shared)
 function getCategoryName(category) {
     switch (category) {
         case 'hands': return '手素材';
         case 'items': return '小物・装飾';
         case 'equipment': return '配信機材';
+        case 'css': return 'CSS素材';
         default: return 'その他';
     }
 }

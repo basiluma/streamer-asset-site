@@ -1,0 +1,22 @@
+/*
+Theme Name: V-Assets Theme
+Theme URI: https://example.com/v-assets
+Author: Antigravity
+Author URI: https://example.com
+Description: A custom theme for V-Assets streamer material site.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: v-assets-theme
+*/
+
+/* Import main styles */
+/* Note: In a real WP theme, you might want to enqueue these properly or merge them. 
+   For now, we'll assume the CSS files are in the same relative structure or enqueued via functions.php */
+body {
+    font-family: "Quicksand", "M PLUS Rounded 1c", sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
