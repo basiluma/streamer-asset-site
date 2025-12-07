@@ -1,4 +1,10 @@
+import { assets, getAssetById } from './data.js';
+import { initHeader } from './header.js';
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Header
+    initHeader();
+
     // Get ID from URL
     const params = new URLSearchParams(window.location.search);
     const idParam = params.get('id');
@@ -11,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Find asset
-    const asset = assets.find(a => a.id === id);
+    const asset = getAssetById(id);
 
     if (!asset) {
         document.querySelector('.content-col').innerHTML = '<h1>素材が見つかりませんでした。</h1><p><a href="index.html">トップページに戻る</a></p>';

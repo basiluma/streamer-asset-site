@@ -1,12 +1,14 @@
-// DOM Elements
-// Elements will be grabbed inside init or assumed global if script is at end of body
-// But let's define them here for scope access if needed, or just inside init.
-// For safety, let's grab them inside DOMContentLoaded or just at top level if we trust the order.
-// To match previous logic:
+import { assets } from './data.js';
+import { renderAssets } from './render.js';
+import { initSlideshow, setupMobileMenu } from './ui.js';
+import { initHeader } from './header.js';
 
+// DOM Elements
 const assetsGrid = document.getElementById('assetsGrid');
 const sortSelect = document.getElementById('sortSelect');
-const categoryRadios = document.getElementsByName('category');
+const mobileSortSelect = document.getElementById('mobileSortSelect');
+const categorySelect = document.getElementById('categorySelect');
+const mobileCategorySelect = document.getElementById('mobileCategorySelect');
 const filterTags = document.querySelectorAll('.filter-tag');
 const searchInput = document.getElementById('searchInput');
 
@@ -20,63 +22,58 @@ const state = {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    // Initial Render
-    // assets is global from data.js
-    // renderAssets is global from render.js
-    renderAssets(assetsGrid, assets, state);
+    // Header
+    initHeader();
+
+    // Initial Render (only if assetsGrid exists)
+    if (assetsGrid) {
+        renderAssets(assetsGrid, assets, state);
+    }
 
     // Setup UI
     setupEventListeners();
-    initSlideshow();
+
+    // Only init slideshow if slides exist
+    if (document.querySelector('.slide')) {
+        initSlideshow();
+    }
+
     setupMobileMenu();
 });
 
 // Event Listeners
 function setupEventListeners() {
     // Sort
-    if (sortSelect) {
-        sortSelect.addEventListener('change', (e) => {
-            state.currentSort = e.target.value;
-            // Sync mobile sort if exists
-            const mobileSort = document.getElementById('mobileSortSelect');
-            if (mobileSort) mobileSort.value = e.target.value;
-            renderAssets(assetsGrid, assets, state);
-        });
-    }
+    const handleSortChange = (e) => {
+        const newValue = e.target.value;
+        state.currentSort = newValue;
 
-    const mobileSortSelect = document.getElementById('mobileSortSelect');
-    if (mobileSortSelect) {
-        mobileSortSelect.addEventListener('change', (e) => {
-            state.currentSort = e.target.value;
-            // Sync desktop sort if exists
-            if (sortSelect) sortSelect.value = e.target.value;
-            renderAssets(assetsGrid, assets, state);
-        });
-    }
+        // Sync values
+        if (sortSelect && sortSelect !== e.target) sortSelect.value = newValue;
+        if (mobileSortSelect && mobileSortSelect !== e.target) mobileSortSelect.value = newValue;
+
+        if (assetsGrid) renderAssets(assetsGrid, assets, state);
+    };
+
+    if (sortSelect) sortSelect.addEventListener('change', handleSortChange);
+    if (mobileSortSelect) mobileSortSelect.addEventListener('change', handleSortChange);
+
 
     // Category
-    // Category
-    // Category
-    const categorySelect = document.getElementById('categorySelect');
-    if (categorySelect) {
-        categorySelect.addEventListener('change', (e) => {
-            state.currentCategory = e.target.value;
-            // Sync mobile select if exists
-            const mobileSelect = document.getElementById('mobileCategorySelect');
-            if (mobileSelect) mobileSelect.value = e.target.value;
-            renderAssets(assetsGrid, assets, state);
-        });
-    }
+    const handleCategoryChange = (e) => {
+        const newValue = e.target.value;
+        state.currentCategory = newValue;
 
-    const mobileCategorySelect = document.getElementById('mobileCategorySelect');
-    if (mobileCategorySelect) {
-        mobileCategorySelect.addEventListener('change', (e) => {
-            state.currentCategory = e.target.value;
-            // Sync desktop select if exists
-            if (categorySelect) categorySelect.value = e.target.value;
-            renderAssets(assetsGrid, assets, state);
-        });
-    }
+        // Sync values
+        if (categorySelect && categorySelect !== e.target) categorySelect.value = newValue;
+        if (mobileCategorySelect && mobileCategorySelect !== e.target) mobileCategorySelect.value = newValue;
+
+        if (assetsGrid) renderAssets(assetsGrid, assets, state);
+    };
+
+    if (categorySelect) categorySelect.addEventListener('change', handleCategoryChange);
+    if (mobileCategorySelect) mobileCategorySelect.addEventListener('change', handleCategoryChange);
+
 
     // Tags
     filterTags.forEach(tag => {
@@ -91,7 +88,7 @@ function setupEventListeners() {
                 tag.classList.add('active');
                 state.activeTags.push(value);
             }
-            renderAssets(assetsGrid, assets, state);
+            if (assetsGrid) renderAssets(assetsGrid, assets, state);
         });
     });
 
@@ -99,7 +96,7 @@ function setupEventListeners() {
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             state.searchQuery = e.target.value;
-            renderAssets(assetsGrid, assets, state);
+            if (assetsGrid) renderAssets(assetsGrid, assets, state);
         });
     }
 }

@@ -1,5 +1,5 @@
 // Slideshow Logic
-function initSlideshow() {
+export function initSlideshow() {
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.slide-prev');
     const nextBtn = document.querySelector('.slide-next');
@@ -27,7 +27,7 @@ function initSlideshow() {
 }
 
 // Mobile Menu Logic
-function setupMobileMenu() {
+export function setupMobileMenu() {
     // Use event delegation to handle clicks on the mobile menu button
     document.addEventListener('click', (e) => {
         const mobileMenuBtn = e.target.closest('.mobile-menu-btn');
